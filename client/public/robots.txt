@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ocean-hero-ai.vercel.app/sitemap.xml
