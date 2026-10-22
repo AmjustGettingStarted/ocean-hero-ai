@@ -121,9 +121,12 @@
     font-family: 'Geist', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    min-width: 320px;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -135,6 +138,22 @@
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
+  }
+}
+
+.ocean-video {
+  object-position: 70% center;
+}
+
+@media (max-width: 639px) {
+  .ocean-video {
+    object-position: 60% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
