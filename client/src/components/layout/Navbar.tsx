@@ -32,7 +32,7 @@ export function Navbar() {
         <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12" aria-label="Primary navigation">
           <a
             href="#home"
-            className="relative z-50 text-lg font-semibold tracking-[-0.04em] text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:text-xl"
+            className="font-heading relative z-50 text-xl font-bold tracking-tight text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:text-2xl"
             onClick={(event) => {
               event.preventDefault();
               scrollToSection("home");

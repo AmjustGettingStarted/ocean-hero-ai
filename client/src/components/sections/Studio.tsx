@@ -39,11 +39,11 @@ function AnimatedStat({ value, suffix, label, active, reducedMotion }: { value: 
 
   return (
     <div className="border-t border-white/15 pt-4">
-      <p className="text-4xl font-medium tracking-[-0.06em] text-white sm:text-5xl">
+      <p className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl">
         {count}
         <span className="text-white/45">{suffix}</span>
       </p>
-      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">{label}</p>
+      <p className="font-body mt-2 text-xs uppercase tracking-[0.18em] text-white/45">{label}</p>
     </div>
   );
 }
@@ -69,14 +69,14 @@ export function Studio() {
         <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24">
           <div>
             <Reveal>
-              <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">{siteCopy.studioEyebrow}</p>
-              <h2 id="studio-title" className="max-w-3xl text-[clamp(2.7rem,7vw,6.8rem)] font-medium leading-[0.94] tracking-[-0.065em] text-white">
+              <p className="font-body mb-4 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">{siteCopy.studioEyebrow}</p>
+              <h2 id="studio-title" className="font-heading max-w-3xl text-[clamp(2.7rem,7vw,6.8rem)] font-bold leading-[0.94] tracking-[-0.03em] text-white">
                 Small team. <span className="text-white/42">Big feeling.</span>
               </h2>
             </Reveal>
             <ParallaxLayer distance={18} direction="down" className="mt-8 max-w-xl sm:mt-12">
               <Reveal delay={0.12}>
-                <p className="text-lg leading-relaxed text-white/60 sm:text-xl">
+                <p className="font-body text-lg leading-relaxed text-white/60 sm:text-xl">
                   Foldcraft is an independent brand and visual storytelling studio for people building the next meaningful thing. We make the invisible feel inevitable.
                 </p>
               </Reveal>
@@ -106,9 +106,9 @@ export function Studio() {
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: reducedMotion ? 0 : 0.75, delay: reducedMotion ? 0 : index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-xs uppercase tracking-[0.2em] text-white/35">0{index + 1}</span>
-                <h3 className="mt-7 text-2xl font-medium tracking-[-0.04em] text-white">{step.title}</h3>
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/55">{step.description}</p>
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/35">0{index + 1}</span>
+                <h3 className="font-heading mt-7 text-2xl font-bold tracking-[-0.02em] text-white">{step.title}</h3>
+                <p className="font-body mt-3 max-w-xs text-sm leading-relaxed text-white/55">{step.description}</p>
               </motion.article>
             ))}
           </div>

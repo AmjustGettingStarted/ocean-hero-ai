@@ -9,7 +9,7 @@ import { Studio } from "@/components/sections/Studio";
 
 export default function Home() {
   return (
-    <div className="relative isolate min-h-screen overflow-x-hidden bg-black font-sans text-white selection:bg-white selection:text-black">
+    <div className="relative isolate min-h-screen overflow-x-hidden bg-black font-body text-white selection:bg-white selection:text-black">
       <OceanBackground />
       <ScrollProgress />
       <Navbar />

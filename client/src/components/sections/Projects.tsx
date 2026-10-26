@@ -27,18 +27,18 @@ export function Projects() {
         <ParallaxLayer distance={18} direction="down" className="mb-14 flex flex-col gap-5 sm:mb-20 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <Reveal>
-              <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">{siteCopy.projectsEyebrow}</p>
+              <p className="font-body mb-4 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">{siteCopy.projectsEyebrow}</p>
             </Reveal>
             <motion.h2
               id="projects-title"
-              className="max-w-xl text-[clamp(2.6rem,7vw,6rem)] font-medium leading-[0.95] tracking-[-0.06em] text-white"
+              className="font-heading max-w-xl text-[clamp(2.6rem,7vw,6rem)] font-bold leading-[0.95] tracking-[-0.03em] text-white"
               style={{ x: reducedMotion ? 0 : headingX }}
             >
               Work with a pulse.
             </motion.h2>
           </div>
           <Reveal delay={0.12} className="max-w-xs sm:pb-1">
-            <p className="text-sm leading-relaxed text-white/55 sm:text-base">
+            <p className="font-body text-sm leading-relaxed text-white/55 sm:text-base">
               A selection of identities, campaigns, and digital worlds built to stay with you.
             </p>
           </Reveal>
@@ -92,17 +92,17 @@ export function Projects() {
                     </div>
 
                     <div className="space-y-3 pt-12">
-                      <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80">
+                      <div className="flex flex-wrap items-center gap-2 font-body text-xs uppercase tracking-[0.2em] text-white/80">
                         <span className="rounded-full border border-white/15 bg-black/40 px-3 py-1 backdrop-blur-md text-white/95">
                           {project.category}
                         </span>
                         <span className="text-white/40">•</span>
                         <span className="font-mono text-white/70">{project.year}</span>
                       </div>
-                      <h3 className="text-2xl font-medium tracking-[-0.04em] text-white transition-colors duration-300 drop-shadow-md sm:text-3xl lg:text-4xl">
+                      <h3 className="font-heading text-2xl font-bold tracking-[-0.02em] text-white transition-colors duration-300 drop-shadow-md sm:text-3xl lg:text-4xl">
                         {project.name}
                       </h3>
-                      <p className="line-clamp-2 text-xs leading-relaxed text-white/75 drop-shadow transition-colors duration-300 group-hover:text-white/95 sm:text-sm">
+                      <p className="font-body line-clamp-2 text-xs leading-relaxed text-white/75 drop-shadow transition-colors duration-300 group-hover:text-white/95 sm:text-sm">
                         {project.description}
                       </p>
                     </div>
