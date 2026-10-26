@@ -6,8 +6,8 @@ export function Footer() {
     <footer className="border-t border-white/10 px-5 py-8 text-sm text-white/45 sm:px-8 lg:px-12">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-medium text-white">Foldcraft<span className="text-white/40">.</span></p>
-          <p className="mt-1 text-xs text-white/50">Brand &amp; visual storytelling</p>
+          <p className="font-heading font-bold text-base tracking-tight text-white">Foldcraft<span className="text-white/40">.</span></p>
+          <p className="font-body mt-1 text-xs text-white/50">Brand &amp; visual storytelling</p>
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
           <span className="text-white/55">© 2026 Foldcraft Studio</span>

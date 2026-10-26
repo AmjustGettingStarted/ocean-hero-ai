@@ -19,8 +19,8 @@ export function Hero() {
       <div className="mx-auto flex min-h-[calc(100svh-11rem)] w-full max-w-7xl flex-col justify-between gap-16">
         <ParallaxLayer distance={20} className="max-w-4xl">
           <Reveal>
-            <p className="mb-5 text-xs font-medium uppercase tracking-[0.24em] text-white/70 sm:text-sm">{siteCopy.eyebrow}</p>
-            <SplitText id="hero-title" lines={siteCopy.heroHeadline} className="text-[clamp(2.75rem,8vw,7.5rem)] font-medium leading-[0.98] tracking-[-0.06em] text-white" />
+            <p className="font-body mb-5 text-xs font-medium uppercase tracking-[0.24em] text-white/70 sm:text-sm">{siteCopy.eyebrow}</p>
+            <SplitText id="hero-title" lines={siteCopy.heroHeadline} className="font-heading text-[clamp(2.75rem,8vw,7.5rem)] font-bold leading-[0.98] tracking-[-0.03em] text-white" />
           </Reveal>
         </ParallaxLayer>
 

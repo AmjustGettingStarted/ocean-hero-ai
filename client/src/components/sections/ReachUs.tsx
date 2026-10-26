@@ -65,8 +65,8 @@ export function ReachUs() {
       <div className="mx-auto max-w-7xl">
         <ParallaxLayer distance={16} direction="down" className="mb-14 sm:mb-20">
           <Reveal>
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">{siteCopy.reachEyebrow}</p>
-            <motion.h2 id="reach-us-title" className="max-w-4xl text-[clamp(3rem,8vw,8rem)] font-medium leading-[0.9] tracking-[-0.07em] text-white" style={{ y: reducedMotion ? 0 : headlineY }}>
+            <p className="font-body mb-4 text-xs font-medium uppercase tracking-[0.24em] text-white/55 sm:text-sm">{siteCopy.reachEyebrow}</p>
+            <motion.h2 id="reach-us-title" className="font-heading max-w-4xl text-[clamp(3rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.03em] text-white" style={{ y: reducedMotion ? 0 : headlineY }}>
               Let&apos;s make something <span className="text-white/40">impossible to ignore.</span>
             </motion.h2>
           </Reveal>
@@ -95,8 +95,8 @@ export function ReachUs() {
               {submitted ? (
                 <motion.div className="flex min-h-[22rem] flex-col items-start justify-center" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.55 }}>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black"><Check className="h-5 w-5" aria-hidden="true" /></div>
-                  <h3 className="mt-7 text-3xl font-medium tracking-[-0.05em] text-white">Message received.</h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">Thanks for reaching out. We&apos;ll get back to you with a thoughtful next step.</p>
+                  <h3 className="font-heading mt-7 text-3xl font-bold tracking-tight text-white">Message received.</h3>
+                  <p className="font-body mt-3 max-w-sm text-sm leading-relaxed text-white/55">Thanks for reaching out. We&apos;ll get back to you with a thoughtful next step.</p>
                   <button type="button" onClick={() => setSubmitted(false)} className="mt-8 text-sm text-white underline decoration-white/30 underline-offset-4 transition hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">Send another note</button>
                 </motion.div>
               ) : (
