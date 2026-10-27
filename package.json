@@ -88,5 +88,10 @@
     "vite": "^7.1.7",
     "vite-plugin-manus-runtime": "^0.0.58",
     "vitest": "^2.1.4"
+  },
+  "overrides": {
+    "@builder.io/vite-plugin-jsx-loc": {
+      "vite": "$vite"
+    }
   }
 }
