@@ -25,10 +25,50 @@ export const siteCopy = {
   reachEyebrow: "Start a conversation",
 } as const;
 
+export const NAV_SCROLL_EVENT = "foldcraft-nav-scroll";
+
+export interface NavScrollDetail {
+  id: SectionId;
+}
+
 export function scrollToSection(id: SectionId) {
+  if (typeof window === "undefined") return;
+
+  // Dispatch custom navigation event so the active section indicator locks to the target
+  // and prevents intermediate section highlighting during the smooth scroll animation
+  window.dispatchEvent(
+    new CustomEvent<NavScrollDetail>(NAV_SCROLL_EVENT, {
+      detail: { id },
+    })
+  );
+
+  const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const behavior: ScrollBehavior = isReducedMotion ? "auto" : "smooth";
+
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior });
+    try {
+      window.history.replaceState(null, "", "#home");
+    } catch {
+      // Ignore if history state update is blocked
+    }
+    return;
+  }
+
   const section = document.getElementById(id);
   if (!section) return;
 
-  section.scrollIntoView({ behavior: "smooth", block: "start" });
-  window.history.replaceState(null, "", `#${id}`);
+  // Dynamically compute navbar height or fall back to default fixed header height (76px)
+  const header = document.querySelector("header");
+  const navHeight = header ? header.getBoundingClientRect().height : 76;
+  const elementTop = section.getBoundingClientRect().top + window.scrollY;
+  const targetY = Math.max(0, Math.round(elementTop - navHeight));
+
+  window.scrollTo({ top: targetY, behavior });
+  try {
+    window.history.replaceState(null, "", `#${id}`);
+  } catch {
+    // Ignore if history state update is blocked
+  }
 }
+
