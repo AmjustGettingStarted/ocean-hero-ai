@@ -61,7 +61,11 @@ export function Navbar() {
                       <motion.span
                         layoutId="active-nav-pill"
                         className="absolute inset-0 -z-10 rounded-full bg-white/10"
-                        transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                        transition={
+                          reducedMotion
+                            ? { duration: 0 }
+                            : { type: "spring", stiffness: 380, damping: 32 }
+                        }
                       />
                     )}
                     <span>{link.label}</span>
