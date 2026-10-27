@@ -101,11 +101,11 @@ export function useActiveSection(
       // Native scrollend event (supported in modern browsers)
       window.addEventListener("scrollend", onScrollEnd, { once: true });
 
-      // Fallback timeout: smooth scrolling settles within ~800-900ms
+      // Fallback timeout: smooth scrolling settles within ~1100ms
       lockTimeoutRef.current = setTimeout(() => {
         window.removeEventListener("scrollend", onScrollEnd);
         releaseLock();
-      }, 950);
+      }, 1200);
     };
 
     // If user takes over manual scrolling (mouse wheel, touch gesture, page keys), release lock immediately
@@ -153,7 +153,7 @@ export function useActiveSection(
       }
 
       // 3. Primary reading zone check
-      // Target reading zone is placed at triggerRatio (e.g. 35% from the top of the viewport)
+      // Target reading zone is placed at triggerRatio (default 35% from the top of the viewport)
       const triggerY = clientHeight * triggerRatio;
       const sections = getSections();
       if (sections.length === 0) return sectionIds[0] ?? "home";

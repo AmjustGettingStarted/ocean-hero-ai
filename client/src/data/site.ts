@@ -43,6 +43,35 @@ export function scrollToSection(id: SectionId) {
   );
 
   const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Header offset calculation
+  const header = document.querySelector("header");
+  const navHeight = header ? header.getBoundingClientRect().height : 76;
+
+  // Check if Lenis smooth scrolling instance is available
+  interface LenisGlobal {
+    scrollTo: (target: number | HTMLElement | string, options?: { offset?: number; duration?: number; immediate?: boolean }) => void;
+  }
+  const lenis = (window as unknown as { __lenis?: LenisGlobal }).__lenis;
+
+  if (lenis && !isReducedMotion) {
+    if (id === "home") {
+      lenis.scrollTo(0, { duration: 1.2 });
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        lenis.scrollTo(section, { offset: -navHeight, duration: 1.2 });
+      }
+    }
+    try {
+      window.history.replaceState(null, "", `#${id}`);
+    } catch {
+      // Ignore if history state update is restricted
+    }
+    return;
+  }
+
+  // Fallback if Lenis is not active or reduced motion is preferred
   const behavior: ScrollBehavior = isReducedMotion ? "auto" : "smooth";
 
   if (id === "home") {
@@ -50,7 +79,7 @@ export function scrollToSection(id: SectionId) {
     try {
       window.history.replaceState(null, "", "#home");
     } catch {
-      // Ignore if history state update is blocked
+      // Ignore
     }
     return;
   }
@@ -58,9 +87,6 @@ export function scrollToSection(id: SectionId) {
   const section = document.getElementById(id);
   if (!section) return;
 
-  // Dynamically compute navbar height or fall back to default fixed header height (76px)
-  const header = document.querySelector("header");
-  const navHeight = header ? header.getBoundingClientRect().height : 76;
   const elementTop = section.getBoundingClientRect().top + window.scrollY;
   const targetY = Math.max(0, Math.round(elementTop - navHeight));
 
@@ -68,7 +94,6 @@ export function scrollToSection(id: SectionId) {
   try {
     window.history.replaceState(null, "", `#${id}`);
   } catch {
-    // Ignore if history state update is blocked
+    // Ignore
   }
 }
-

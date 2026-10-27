@@ -5,7 +5,22 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import { ReactLenis, useLenis } from "lenis/react";
+import "lenis/dist/lenis.css";
+import { useEffect } from "react";
 
+function LenisSync() {
+  const lenis = useLenis();
+  useEffect(() => {
+    if (lenis) {
+      (window as unknown as { __lenis?: typeof lenis }).__lenis = lenis;
+    }
+    return () => {
+      (window as unknown as { __lenis?: typeof lenis }).__lenis = undefined;
+    };
+  }, [lenis]);
+  return null;
+}
 
 function Router() {
   return (
@@ -31,8 +46,20 @@ function App() {
         // switchable
       >
         <TooltipProvider>
-          <Toaster />
-          <Router />
+          <ReactLenis
+            root
+            options={{
+              lerp: 0.085,
+              duration: 1.2,
+              smoothWheel: true,
+              wheelMultiplier: 1,
+              touchMultiplier: 1.8,
+            }}
+          >
+            <LenisSync />
+            <Toaster />
+            <Router />
+          </ReactLenis>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
@@ -40,3 +67,4 @@ function App() {
 }
 
 export default App;
+
