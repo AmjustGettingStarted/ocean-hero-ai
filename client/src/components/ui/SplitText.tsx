@@ -19,7 +19,8 @@ export function SplitText({ lines, className, id }: SplitTextProps) {
       {lines.map((line, index) => (
         <motion.span
           key={`${line}-${index}`}
-          className="block"
+          className="block font-heading"
+          style={{ fontFamily: "inherit" }}
           initial={{ opacity: 0, x: reducedMotion ? 0 : index % 2 === 0 ? -38 : 38 }}
           animate={isInView ? { opacity: 1, x: 0 } : undefined}
           transition={{ duration: reducedMotion ? 0 : 0.85, delay: reducedMotion ? 0 : index * 0.08, ease: easeOut }}
